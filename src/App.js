@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Modal from './components/submitReportModal';
 
-function App() {
+const App = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button className="px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-600 focus:bg-blue-600" onClick={handleOpenModal}>Open Modal</button>
+      <Modal isOpen={modalIsOpen} onClose={handleCloseModal} />
     </div>
   );
-}
+};
 
 export default App;
