@@ -6,11 +6,10 @@ const Modal = ({ isOpen, onClose }) => {
 
   return (
     <div className=" fixed z-50 top-0 left-0 w-full h-full overflow-auto bg-black bg-opacity-80">
-      <div className="relative w-full lg:w-7/12 mx-auto mt-24 mb-4 overflow-hidden rounded-lg text-white bg-black rounded shadow-lg">
-        <div className="px-5 sm:px-10 md:px-20 pt-4 mb-8 w-full h-full rounded-lg">
+      <div className="relative w-[95%] sm:w-9/12 lg:w-7/12 mx-auto mt-24 mb-4 overflow-hidden rounded-lg text-white bg-black  shadow-lg">
+        <div className="px-4  lg:px-8 xl:px-20 pt-4 mb-8 w-full h-full rounded-lg">
           <h2
-            className="text-lg font-bold mb-8 text-center font-sans text-xl"
-            style={{ fontSize: 32 }}
+            className=" font-bold mb-8 text-center font-sans text-xl text-[32px]"
           >
             Submit Report
           </h2>
@@ -23,84 +22,72 @@ const Modal = ({ isOpen, onClose }) => {
                 className="rounded-lg aspect-h-4 aspect-w-3 object-cover "
               />
             </div>
-            <div className=" ml-4  py-4 grid grid-cols-2 ">
-              <div className="col-span-12">
-                <h3 className="font-bold mb-2" style={{ fontSize: 22 }}>
-                  Art Title
-                </h3>
-                <p
-                  className="mb-2 font-light"
-                  style={{ WebkitTextSizeAdjust: "auto", whiteSpace: 'pre-line', fontStretch: 'ultra-condensed' }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Blanditiis, asperiores repellat ratione nemo aldskjflsdk flskd
-                </p>
-              </div>
-              <div className="col-span-5  inset-x-0 bottom-0 hidden sm:flex flex col-span-2 pb-2  ">
+            <div className=" ml-4  py-4 flex flex-col justify-evenly h-full">
+              {/* <div className="h-1/2 bg-slate-400">
+                
+              </div> */}
+              <h3 className="font-semibold " style={{ fontSize: 22 }}>
+                Art Title
+              </h3>
+              <p
+                className="mb-2 font-light text-[12px]"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Blanditiis, asperiores repellat ratione nemo aldskjflsdk flskd
+              </p>
+              <div className="hidden sm:flex items-end">
                 <img
                   src="./images/profile.jpg"
                   alt="icon"
-                  className="mr-2 rounded-lg profile-img"
-                  style={{maxHeight: 60,}}
+                  className="mr-2 rounded-lg profile-img max-h-[50px]"
                 />
-                <div className="text-gray-500 align-bottom">
+                <div className="text-gray-500 align-bottom h-full flex flex-col justify-center">
                   <h3
-                    className="text-white font-medium"
-                    style={{ fontSize: 20 }}
+                    className="text-white font-normal text-lg"
                   >
                     Artist Name
                   </h3>
                   <p
-                    className="text-base text-xl text-sm"
-                    style={{ fontSize: 13 }}
+                    className="text-[12px]"
                   >
                     @john_doe
                   </p>
                 </div>
               </div>
             </div>
-            <div className="block sm:hidden flex col-span-2 pb-2">
+            <div className="flex sm:hidden  col-span-2 pb-2">
               <img
                 src="./images/profile.jpg"
                 alt="icon"
-                className="mr-2  rounded-lg profile-img object-cover h-12 w-12"
+                className="mr-2 rounded-lg profile-img object-cover h-10 w-10"
               />
-              <div className="text-sm text-gray-500 w-full">
-                <h3 className="text-lg text-white font-semibold">
+              <div className="text-gray-500 w-full">
+                <h3 className="text-lg text-white font-normal">
                   Artist Name
                 </h3>
-                <p className="text-base text-xl text-sm">@john_doe</p>
+                <p className="text-[12px]">@john_doe</p>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-nowrap items-center justify-start">
-            <button
-              className="font-sans px-6 h-8 text-sm text-white bg-gray-700 rounded hover:bg-gray-500 mr-5"
-              style={{ height: 40, borderRadius: 10, marginTop: 36 }}
+          <div className="flex flex-wrap items-center justify-start mt-[36px] gap-5">
+            <div
+              className="font-sans px-6  text-sm text-white bg-gray-700   h-10 rounded-[10px] justify-center items-center flex"
             >
               Reporter
-            </button>
-            <button
-              className=" flex flex-wrap items-center px-2  text-sm text-white bg-gray-700 rounded hover:bg-gray-500"
-              style={{ height: 40, borderRadius: 10, marginTop: 36 }}
+            </div>
+            <div
+              className=" flex  items-center px-2  text-sm text-white bg-gray-700 h-10 rounded-[10px] py-1 overflow-hidden gap-x-[10px] w-full sm:w-auto"
             >
               <img
                 src="./images/profile.jpg"
                 alt="email"
-                className="inline-block aspect-h-4  aspect-w-3 h-10 "
-                style={{
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  paddingTop: 8,
-                  paddingBottom: 8,
-                  borderRadius: 15,
-                }}
+                className="inline-block aspect-h-5  aspect-w-5 h-full rounded-lg"
               />
               <span className="inline-block align-middle">
                 Email@gmail.com
               </span>
-            </button>
+            </div>
           </div>
           <p className=" font-semibold" style={{ marginTop: 36 }}>
             Message
@@ -112,7 +99,7 @@ const Modal = ({ isOpen, onClose }) => {
             style={{ marginTop: 18 }}
           ></textarea>
 
-          <div className="flex justify-center sm:justify-end" style={{ marginTop:34}}>
+          <div className="flex justify-center sm:justify-end" style={{ marginTop: 34 }}>
             <button
               className="w-32 py-2 mr-5 font-semibold text-black bg-white rounded hover:bg-gray-200 focus:bg-gray-200"
               onClick={onClose}
