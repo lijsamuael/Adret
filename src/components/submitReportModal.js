@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
@@ -22,26 +23,25 @@ const Modal = ({ isOpen, onClose }) => {
                 className="rounded-lg aspect-h-4 aspect-w-3 object-cover "
               />
             </div>
-            <div className=" ml-4 flex flex-col jusitify-between">
-              <div>
-              <h3 className="font-bold mb-2" style={{ fontSize: 22 }}>
-                Art Title
-              </h3>
-              <p
-                className="mb-2 font-light"
-                style={{ fontSize: window.innerWidth < 400 ? "10px" : "14px" }}
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blanditiis, asperiores repellat ratione nemo aldskjflsdk flskd
-              </p>
+            <div className=" ml-4  py-4 grid grid-cols-2 ">
+              <div className="col-span-12">
+                <h3 className="font-bold mb-2" style={{ fontSize: 22 }}>
+                  Art Title
+                </h3>
+                <p
+                  className="mb-2 font-light"
+                  style={{ WebkitTextSizeAdjust: "auto", whiteSpace: 'pre-line', fontStretch: 'ultra-condensed' }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Blanditiis, asperiores repellat ratione nemo aldskjflsdk flskd
+                </p>
               </div>
-              <div className="hidden sm:flex flex col-span-2 pb-2  ">
+              <div className="col-span-5  inset-x-0 bottom-0 hidden sm:flex flex col-span-2 pb-2  ">
                 <img
                   src="./images/profile.jpg"
-                  width="60"
-                  height="60"
                   alt="icon"
                   className="mr-2 rounded-lg profile-img"
+                  style={{maxHeight: 60,}}
                 />
                 <div className="text-gray-500 align-bottom">
                   <h3
@@ -74,31 +74,45 @@ const Modal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-start">
-            <button className="font-sans px-6 h-8 text-sm text-white bg-gray-700 rounded hover:bg-gray-500 mr-5" style={{height: 40, borderRadius: 10, marginTop:36}}>
+          <div className="flex flex-nowrap items-center justify-start">
+            <button
+              className="font-sans px-6 h-8 text-sm text-white bg-gray-700 rounded hover:bg-gray-500 mr-5"
+              style={{ height: 40, borderRadius: 10, marginTop: 36 }}
+            >
               Reporter
             </button>
-            <button className=" flex flex-nowrap items-center px-2  text-sm text-white bg-gray-700 rounded hover:bg-gray-500" style={{height: 40, borderRadius: 10, marginTop:36}}>
+            <button
+              className=" flex flex-wrap items-center px-2  text-sm text-white bg-gray-700 rounded hover:bg-gray-500"
+              style={{ height: 40, borderRadius: 10, marginTop: 36 }}
+            >
               <img
                 src="./images/profile.jpg"
                 alt="email"
                 className="inline-block aspect-h-4  aspect-w-3 h-10 "
-                style={{paddingLeft:10, paddingRight:10, paddingTop:8, paddingBottom:8, borderRadius: 15}}
+                style={{
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                  paddingTop: 8,
+                  paddingBottom: 8,
+                  borderRadius: 15,
+                }}
               />
               <span className="inline-block align-middle">
-                example@gmail.com
+                Email@gmail.com
               </span>
             </button>
           </div>
-          <p className=" font-semibold" style={{ marginTop:36}}>Message</p>
+          <p className=" font-semibold" style={{ marginTop: 36 }}>
+            Message
+          </p>
           <textarea
             className="w-full h-64 px-3  rounded-md bg-gray-700 "
             rows="5"
             placeholder="Please give us a detail report on why reporting this art..."
-            style={{ marginTop:18}}
+            style={{ marginTop: 18 }}
           ></textarea>
 
-          <div className="flex justify-center sm:justify-end">
+          <div className="flex justify-center sm:justify-end" style={{ marginTop:34}}>
             <button
               className="w-32 py-2 mr-5 font-semibold text-black bg-white rounded hover:bg-gray-200 focus:bg-gray-200"
               onClick={onClose}
