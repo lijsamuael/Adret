@@ -5,8 +5,8 @@ const Modal = ({ isOpen, onClose }) => {
 
   return (
     <div className=" fixed z-50 top-0 left-0 w-full h-full overflow-auto bg-black bg-opacity-80">
-      <div className="relative w-[95%] sm:w-9/12 lg:w-7/12 2xl:w-6/12 mx-auto mt-24 overflow-hidden rounded-lg text-white bg-black  shadow-lg">
-        <div className="flex flex-col space-y-8  py-8  px-4 ssm:px-[30px] sm:px-[40px]  lg:px-12 xl:px-[60px] 2xl:px-20 pt-[24px] w-full h-full rounded-lg">
+      <div className="relative max-w-[1000px] w-[95%] sm:w-9/12 lg:w-7/12 2xl:w-6/12 mx-auto mt-24 overflow-hidden rounded-lg text-white bg-black  shadow-lg">
+        <div className="flex flex-col space-y-8  py-8  px-4 ssm:px-[30px] sm:px-[40px]  lg:px-12 xl:px-[60px] 2xl:px-20 pt-[24px]  w-full h-full rounded-lg">
           <h2 className=" font-bold  text-center font-sans   text-[24px] ssm:text-[32px]">
             Submit Report
           </h2>
@@ -23,13 +23,15 @@ const Modal = ({ isOpen, onClose }) => {
               <h3 className="font-bold text-[18px] ssm:text-[24px]">
                 Art Title
               </h3>
-              <p className=" font-light text-[11px] ssm:text-[13px] h-16 text-ellipsis overflow-hidden">
+              <div className="h-16">
+              <p className=" font-light text-[11px] ssm:text-[13px] line-clamp-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Blaiis,
                 asores repellat ratione nemo alflsdk flskd anebe adad beed leke
                 lkeej Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Blaiis, asores repellat ratione nemo alflsdk flskd anebe adad
                 beed leke lkee
               </p>
+              </div>
               <div className="hidden sm:flex items-end gap-x-[10px]">
                 <img
                   src="./images/profile.jpg"
