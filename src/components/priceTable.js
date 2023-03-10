@@ -12,19 +12,69 @@ function PriceTable() {
     setUpdatePriceModalIsOpen(false);
   };
 
+  const price = [
+    {
+      no: 1,
+      size: "",
+      price: "",
+      artistShare: "",
+      icons: "./images/edit-2.png",
+      action: () => {
+        handleOpenUpdatePriceModal()
+      }
+    }, {
+      no: 1,
+      size: "",
+      price: "",
+      artistShare: "",
+      icons: "./images/edit-2.png",
+      action: () => {
+        handleOpenUpdatePriceModal()
+      }
+    }, {
+      no: 1,
+      size: "",
+      price: "",
+      artistShare: "",
+      icons: "./images/edit-2.png",
+      action: () => {
+        handleOpenUpdatePriceModal()
+      }
+    }, {
+      no: 1,
+      size: "",
+      price: "",
+      artistShare: "",
+      icons: "./images/edit-2.png",
+      action: () => {
+        handleOpenUpdatePriceModal()
+      }
+    }, {
+      no: 1,
+      size: "",
+      price: "",
+      artistShare: "",
+      icons: "./images/edit-2.png",
+      action: () => {
+        handleOpenUpdatePriceModal()
+      }
+    }
+  ]
+
   return (
-    <div className="bg-black text-white h-screen">
-      <div className="flex flex-col content-center w-full max-w-[1890px] px-[10px]  sm:px-[20px] md:px-[50px] lg:px-[70px] xl:px-[150px] 2xl:px-[232px] py-[100px] sm:py-[170px] space-y-[55px] sm:space-y-[67px] mx-auto">
-        <div className="space-y-4">
-          <h2 className="text-[40px] sm:text-[50px] font-semibold ">
+    <div className="bg-black text-white h-screen overflow-hidden">
+      <div className="flex flex-col content-center w-full max-w-[1890px] px-[10px]  sm:px-[20px] md:px-[50px] lg:px-[70px] xl:px-[150px] 2xl:px-[232px] pt space-y-[55px] sm:space-y-[67px] mx-auto">
+        <div className="space-y-3 mt-10">
+          <h2 className="text-2xl sm:text-3xl font-semibold ">
             Price Table
           </h2>
-          <p className="text-[25px] sm:text-[30px] font-semibold">
+          <p className="text-base sm:text-lg font-semibold">
             Price and size information for Lorem ipsum
           </p>
         </div>
         <table className=" w-full mx-auto table-fixed text-center ">
-          <thead className="h-28 ">
+
+          <thead className="h-16 ">
             <tr className=" bg-gray-700 ">
               <th className="font-medium text-xl">No.</th>
               <th className="font-medium text-xl">Size</th>
@@ -33,14 +83,25 @@ function PriceTable() {
               <th className=""></th>
             </tr>
           </thead>
-          <tbody className="h-96">
-            <tr className="border-b border-b-gray-700 ">
+          <tbody className="h-48">
+            {price.map((data, index) => {
+              return <tr className="border-b border-b-gray-700 " key={index}>
+                <td>{data.no}</td>
+                <td>{data.size}</td>
+                <td>{data.price}</td>
+                <td>{data.artistShare}</td>
+                <td className="" onClick={() => { { data.action() } }}>
+                  <img src={data.icons} alt="" className=" h-10 p-2 flex justify-center items-center" />
+                </td>
+              </tr>
+            })}
+            {/* <tr className="border-b border-b-gray-700 ">
               <td>1.</td>
               <td>12x13</td>
               <td>100</td>
               <td>100</td>
               <td className="" onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className="mx-auto" />
+                <img src="./images/edit-2.png" alt="" className=" h-10 p-2 flex justify-center items-center" />
               </td>
             </tr>
             <tr className="border-b border-b-gray-700">
@@ -49,7 +110,7 @@ function PriceTable() {
               <td>250</td>
               <td>250</td>
               <td onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className="mx-auto" />
+                <img src="./images/edit-2.png" alt="" className="mx-auto w-10  h-10 p-2 flex justify-center items-center" />
               </td>
             </tr>
             <tr className="border-b border-b-gray-700">
@@ -58,7 +119,7 @@ function PriceTable() {
               <td>400</td>
               <td>400</td>
               <td onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className="mx-auto" />
+                <img src="./images/edit-2.png" alt="" className=" h-10 p-2 flex justify-center items-center" />
               </td>
             </tr>
             <tr className="border-b border-b-gray-700">
@@ -67,9 +128,9 @@ function PriceTable() {
               <td>400</td>
               <td>400</td>
               <td onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className="mx-auto" />
+                <img src="./images/edit-2.png" alt="" className=" h-10 p-2 flex justify-center items-center" />
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
