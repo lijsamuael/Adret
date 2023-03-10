@@ -25,7 +25,7 @@ const Modal = ({ isOpen, onClose, email }) => {
       },
     })
       .then((res) => window.alert(JSON.stringify(res.data.inlineMessage)))
-      .catch((err) => window.alert(SON.stringify(res.data.inlineMessage)));
+      .catch((err) => window.alert(JSON.stringify(err.data.inlineMessage)));
   };
 
   if (!isOpen) return null;
