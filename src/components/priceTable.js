@@ -12,54 +12,33 @@ function PriceTable() {
     setUpdatePriceModalIsOpen(false);
   };
 
-  const price = [
+
+  const priceData = [
     {
       no: 1,
-      size: "",
-      price: "",
-      artistShare: "",
-      icons: "./images/edit-2.png",
-      action: () => {
-        handleOpenUpdatePriceModal()
-      }
-    }, {
-      no: 1,
-      size: "",
-      price: "",
-      artistShare: "",
-      icons: "./images/edit-2.png",
-      action: () => {
-        handleOpenUpdatePriceModal()
-      }
-    }, {
-      no: 1,
-      size: "",
-      price: "",
-      artistShare: "",
-      icons: "./images/edit-2.png",
-      action: () => {
-        handleOpenUpdatePriceModal()
-      }
-    }, {
-      no: 1,
-      size: "",
-      price: "",
-      artistShare: "",
-      icons: "./images/edit-2.png",
-      action: () => {
-        handleOpenUpdatePriceModal()
-      }
-    }, {
-      no: 1,
-      size: "",
-      price: "",
-      artistShare: "",
-      icons: "./images/edit-2.png",
-      action: () => {
-        handleOpenUpdatePriceModal()
-      }
-    }
-  ]
+      size: "12x13",
+      price: 100,
+      share: 100,
+    },
+    {
+      no: 2,
+      size: "25x34",
+      price: 250,
+      share: 250,
+    },
+    {
+      no: 3,
+      size: "90x50",
+      price: 300,
+      share: 300,
+    },
+    {
+      no: 4,
+      size: "90x50",
+      price: 400,
+      share: 400,
+    },
+  ];
 
   return (
     <div className="bg-black text-white h-screen overflow-hidden">
@@ -83,54 +62,18 @@ function PriceTable() {
               <th className=""></th>
             </tr>
           </thead>
-          <tbody className="h-48">
-            {price.map((data, index) => {
-              return <tr className="border-b border-b-gray-700 " key={index}>
-                <td>{data.no}</td>
+          <tbody className="h-96">
+            {priceData.map((data) => (
+              <tr className="border-b border-b-gray-700 key={i}">
+                <td>{data.no}.</td>
                 <td>{data.size}</td>
                 <td>{data.price}</td>
-                <td>{data.artistShare}</td>
-                <td className="" onClick={() => { { data.action() } }}>
-                  <img src={data.icons} alt="" className=" h-10 p-2 flex justify-center items-center" />
+                <td>{data.share}</td>
+                <td className="" onClick={handleOpenUpdatePriceModal}>
+                  <img src="./images/edit-2.png" alt="" className="mx-auto" />
                 </td>
               </tr>
-            })}
-            {/* <tr className="border-b border-b-gray-700 ">
-              <td>1.</td>
-              <td>12x13</td>
-              <td>100</td>
-              <td>100</td>
-              <td className="" onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className=" h-10 p-2 flex justify-center items-center" />
-              </td>
-            </tr>
-            <tr className="border-b border-b-gray-700">
-              <td>2.</td>
-              <td>25x34</td>
-              <td>250</td>
-              <td>250</td>
-              <td onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className="mx-auto w-10  h-10 p-2 flex justify-center items-center" />
-              </td>
-            </tr>
-            <tr className="border-b border-b-gray-700">
-              <td>3.</td>
-              <td>90x50</td>
-              <td>400</td>
-              <td>400</td>
-              <td onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className=" h-10 p-2 flex justify-center items-center" />
-              </td>
-            </tr>
-            <tr className="border-b border-b-gray-700">
-              <td>4.</td>
-              <td>90x50</td>
-              <td>400</td>
-              <td>400</td>
-              <td onClick={handleOpenUpdatePriceModal}>
-                <img src="./images/edit-2.png" alt="" className=" h-10 p-2 flex justify-center items-center" />
-              </td>
-            </tr> */}
+            ))}
           </tbody>
         </table>
       </div>

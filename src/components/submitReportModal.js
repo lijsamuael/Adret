@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose, email }) => {
+  // const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const PORTAL_ID = "24227707";
+  const FORM_ID = "5a593502-0e03-4fa1-b51e-1a4b2e93afc7";
+
+  const handleSubmit = async () => {
+    await axios({
+      method: "post",
+      url: `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`,
+      data: {
+        fields: [
+          {
+            name: "email",
+            value: email,
+          },
+          {
+            name: "message",
+            value: message,
+          },
+        ],
+      },
+    })
+      .then((res) => window.alert(toString(res)))
+      .catch((err) => window.alert(err));
+  };
+
   if (!isOpen) return null;
-
   return (
     <div className=" fixed z-50 top-0 left-0 w-full h-full overflow-auto bg-black bg-opacity-80">
       <div className="relative max-w-[1000px] w-[95%] sm:w-9/12 lg:w-7/12 2xl:w-6/12 mx-auto mt-24 overflow-hidden rounded-lg text-white bg-black  shadow-lg">
@@ -24,13 +50,13 @@ const Modal = ({ isOpen, onClose }) => {
                 Art Title
               </h3>
               <div className="h-16">
-              <p className=" font-light text-[11px] ssm:text-[13px] line-clamp-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blaiis,
-                asores repellat ratione nemo alflsdk flskd anebe adad beed leke
-                lkeej Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blaiis, asores repellat ratione nemo alflsdk flskd anebe adad
-                beed leke lkee
-              </p>
+                <p className=" font-light text-[11px] ssm:text-[13px] line-clamp-2">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Blaiis, asores repellat ratione nemo alflsdk flskd anebe adad
+                  beed leke lkeej Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Blaiis, asores repellat ratione nemo alflsdk
+                  flskd anebe adad beed leke lkee
+                </p>
               </div>
               <div className="hidden sm:flex items-end gap-x-[10px]">
                 <img
@@ -71,28 +97,31 @@ const Modal = ({ isOpen, onClose }) => {
                 alt="email"
                 className=" aspect-sqaure h-full rounded-lg"
               />
-              <span className=" align-middle">Email@gmail.com</span>
+              <span className=" align-middle">{email}</span>
             </div>
           </div>
           <div className="flex flex-col space-y-4">
             <p className=" font-semibold">Message</p>
             <textarea
               className="max-w-1200 h-64 px-3 py-4  rounded-md bg-gray-700 "
-              rows="5"
               placeholder="Please give us a detail report on why reporting this art..."
+              type="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
 
-          <div
-            className="flex space-x-8 justify-center ssm:justify-end"
-          >
+          <div className="flex space-x-8 justify-center ssm:justify-end">
             <button
               className="w-32 py-2 font-semibold text-black bg-white rounded hover:bg-gray-200 focus:bg-gray-200"
               onClick={onClose}
             >
               Cancel
             </button>
-            <button className="w-32 py-2 font-semibold text-white bg-orange-500 rounded hover:bg-orange-600 focus:bg-orange-600">
+            <button
+              className="w-32 py-2 font-semibold text-white bg-orange-500 rounded hover:bg-orange-600 focus:bg-orange-600"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </div>
